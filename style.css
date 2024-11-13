@@ -161,6 +161,10 @@ input:focus, textarea:focus, button:focus {
     box-shadow: -10px 30px 25px rgba(0, 0, 0, 0.40); /* Shadow on the left */
 }
 
+.inputWidth{
+    width: 95%;
+}
+
 
 /* Title styling */
 .noteTitle {
@@ -168,7 +172,6 @@ input:focus, textarea:focus, button:focus {
     font-size: 1.1rem;
     color: #333;
     margin-bottom: 8px;
-    padding-bottom: 8px;
     border-bottom: 1px solid #eee;
     flex-shrink: 0;
 }
@@ -179,7 +182,6 @@ input:focus, textarea:focus, button:focus {
     color: #555;
     overflow-y: auto;
     flex-grow: 1;
-    padding-right: 8px;
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
 }

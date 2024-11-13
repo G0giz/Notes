@@ -5,10 +5,12 @@ const formFileBox = document.getElementById("formFileBox");
 const noteDateBox = document.getElementById("noteDateBox");
 const cardsContainer = document.getElementById("cardsContainer");
 
+// try to get the notes from local storage if there is no items create a blank array
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
 
 // Function to load notes from local storage and display them
 function loadNotesFromLocalStorage() {
+
     // Retrieve the notes from local storage
     const notesFromStorage = JSON.parse(localStorage.getItem('notes')) || [];
 
@@ -19,7 +21,9 @@ function loadNotesFromLocalStorage() {
     displayDataInCards();
 }
 
+//On load get the notes
 window.onload = loadNotesFromLocalStorage;
+
 
 function addNote(event) {
     event.preventDefault();
@@ -27,6 +31,7 @@ function addNote(event) {
     displayDataInCards();
 }
 
+//Function to add the data of a note to the notes array.
 function addData() {
 
     const id = notes.length + 1;
@@ -69,36 +74,37 @@ function addData() {
     displayDataInCards(); 
 }
 
-
+//Function to display the notes in cards
 function displayDataInCards() {
     let content = "";
     for (const note of notes) {
         content += `
-<div class="card" id="card-${note.id}">
-    <!-- Three dots menu button -->
-    <div class="menu-container">
-        <button class="menu-button" onclick="toggleMenu(${note.id})">⋮</button>
-        <div class="menu-options" id="menu-${note.id}" style="display: none;">
-            <button class="edit" onclick="editCard(${note.id})">✏️ Edit</button>
-            <button class="save" onclick="saveCard(${note.id})" style="display:none;">💾 Save</button>
-            <button class="delete" onclick="deleteNote(${note.id})">❌ Delete</button>
+        <div class="card" id="card-${note.id}">
+            <!-- Three dots menu button -->
+            <div class="menu-container">
+                <button class="menu-button" onclick="toggleMenu(${note.id})">⋮</button>
+                <div class="menu-options" id="menu-${note.id}" style="display: none;">
+                    <button class="edit" onclick="editCard(${note.id})">✏️ Edit</button>
+                    <button class="save" onclick="saveCard(${note.id})" style="display:none;">💾 Save</button>
+                    <button class="delete" onclick="deleteNote(${note.id})">❌ Delete</button>
+                </div>
+            </div>
+            
+            <!-- Note content on the right side -->
+            <div class="card-content">
+                <span class="noteTitle inputWidth">${note.noteTitle}</span>
+                <span class="noteDescription inputWidth">${note.noteDescription}</span>
+                    <div>
+                    <a class="noteFile inputWidth" href="${note.formFileURL}" target="_blank">${note.fileName}</a>
+                    </div>
+                <span class="noteDate inputWidth">${note.noteDate}</span>
+            </div>
         </div>
-    </div>
-    
-    <!-- Note content on the right side -->
-    <div class="card-content">
-        <span class="noteTitle">${note.noteTitle}</span>
-        <span class="noteDescription">${note.noteDescription}</span>
-        <div>
-        <a class="noteFile" href="${note.formFileURL}" target="_blank">${note.fileName}</a>
-        </div>
-        <span class="noteDate">${note.noteDate}</span>
-    </div>
-</div>
         `;
     }
     cardsContainer.innerHTML = content;
 }
+
 
 // Function to toggle the specific menu visibility
 function toggleMenu(id) {
@@ -115,6 +121,7 @@ function toggleMenu(id) {
         }
     });
 }
+
 
 // Delete one item: 
 function deleteNote(id) {
@@ -137,6 +144,7 @@ function deleteNote(id) {
     displayDataInCards();
 }
 
+
 function editCard(id) {
     const card = document.getElementById(`card-${id}`);
 
@@ -149,6 +157,7 @@ function editCard(id) {
     const noteFileElement = card.querySelector('.noteFile');
     const noteDateElement = card.querySelector('.noteDate');
     const fileNameTemp = "";
+
     // Change content to editable fields
     noteTitleElement.innerHTML = `<input type="text" id="editTitle-${id}" value="${note.noteTitle}">`;
     noteDescriptionElement.innerHTML = `<textarea id="editDescription-${id}">${note.noteDescription}</textarea>`;
@@ -166,19 +175,21 @@ function saveCard(id) {
     // Get the edited values from the inputs
     const editedTitle = document.getElementById(`editTitle-${id}`).value;
     const editedDescription = document.getElementById(`editDescription-${id}`).value;
-    const editFile = document.getElementById(`editFile-${id}`).value;
+    const editFile = document.getElementById(`editFile-${id}`);
     const editedDate = document.getElementById(`editDate-${id}`).value;
 
     // Update the note in the notes array
     const note = notes.find(note => note.id === id);
     note.noteTitle = editedTitle;
     note.noteDescription = editedDescription;
+
     // Check if the user did not choose a file and keep the last name
-    if (editFile === "") {
+    const formFile = editFile.files[0];
+    if (formFile.name === "") {
         note.fileName = note.fileName;
     }
     else{
-        note.fileName = editFile;
+        note.fileName = formFile.name;
     }
     note.noteDate = editedDate;
 
@@ -198,15 +209,8 @@ function clearUI() {
     // Clear boxes:
     noteTitleBox.value = "";
     noteDescriptionBox.value = "";
-    
+    formFileBox.value = "";
+    noteDateBox.value = "";
     // Put focus in the item box:
     noteTitleBox.focus();
-}
-
-function clearFields() {
-    // Get references to the form fields
-    document.getElementById('noteTitleBox').value = '';
-    document.getElementById('noteDescriptionBox').value = '';
-    document.getElementById('formFileBox').value = '';
-    document.getElementById('noteDateBox').value = '';
 }
