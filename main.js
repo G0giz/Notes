@@ -1,12 +1,15 @@
 "use strict";
+// Get the elements of the note.
 const noteTitleBox = document.getElementById("noteTitleBox");
 const noteDescriptionBox = document.getElementById("noteDescriptionBox");
 const formFileBox = document.getElementById("formFileBox");
 const noteDateBox = document.getElementById("noteDateBox");
 const cardsContainer = document.getElementById("cardsContainer");
 
+
 // try to get the notes from local storage if there is no items create a blank array
 let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
 
 // Function to load notes from local storage and display them
 function loadNotesFromLocalStorage() {
@@ -21,6 +24,7 @@ function loadNotesFromLocalStorage() {
     displayDataInCards();
 }
 
+
 //On load get the notes
 window.onload = loadNotesFromLocalStorage;
 
@@ -30,6 +34,7 @@ function addNote(event) {
     addData();
     displayDataInCards();
 }
+
 
 //Function to add the data of a note to the notes array.
 function addData() {
@@ -74,6 +79,7 @@ function addData() {
     displayDataInCards(); 
 }
 
+
 //Function to display the notes in cards
 function displayDataInCards() {
     let content = "";
@@ -108,6 +114,7 @@ function displayDataInCards() {
 
 // Function to toggle the specific menu visibility
 function toggleMenu(id) {
+
     // Handle the menu display
     const menu = document.getElementById(`menu-${id}`);
     menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
@@ -125,7 +132,9 @@ function toggleMenu(id) {
 
 // Delete one item: 
 function deleteNote(id) {
+
     const sure = confirm("Are you sure?");
+
     // Check if  the user choose no
     if (!sure) return;
 
@@ -137,8 +146,10 @@ function deleteNote(id) {
             break; // אין צורך להמשיך את הלולאה כי מצאנו את האינדקס
         }
     }
+
     // Delete from this index only one item.
     notes.splice(index, 1); 
+
     // Save the updated notes array to local storage
     localStorage.setItem('notes', JSON.stringify(notes));
     displayDataInCards();
@@ -146,9 +157,10 @@ function deleteNote(id) {
 
 
 function editCard(id) {
+
     const card = document.getElementById(`card-${id}`);
 
-    // Find the note by ID
+    // Find the note by ID using find.
     const note = notes.find(note => note.id === id);
 
     // Get the current card content
@@ -169,7 +181,9 @@ function editCard(id) {
     card.querySelector('.save').style.display = 'inline-block';
 }
 
+
 function saveCard(id) {
+
     const card = document.getElementById(`card-${id}`);
 
     // Get the edited values from the inputs
@@ -185,7 +199,7 @@ function saveCard(id) {
 
     // Check if the user did not choose a file and keep the last name
     const formFile = editFile.files[0];
-    if (formFile.name === "") {
+    if (formFile === undefined) {
         note.fileName = note.fileName;
     }
     else{
@@ -200,7 +214,6 @@ function saveCard(id) {
     card.querySelector('.save').style.display = 'none';
 
 }
-
 
 
 // Reset boxes: 

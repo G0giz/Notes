@@ -70,7 +70,7 @@ body {
 /* Style for the text input and textarea */
 .form-control {
     width: 100%; /* Makes the form controls take up the full width of the container */
-    padding: 8px; /* Reduced padding inside the input and textarea */
+    padding: 5px; /* Reduced padding inside the input and textarea */
     border-radius: 4px; /* Rounded corners for inputs */
     border: 1px solid #ccc; /* Light gray border around the input fields */
     background-color: #f9f9f9; /* Light gray background for input fields */
@@ -99,7 +99,7 @@ input[type="date"].form-control {
     border: none; /* Removes the default border */
     cursor: pointer; /* Changes the cursor to a pointer on hover */
     font-size: 0.875rem; /* Smaller font size for the button text */
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 /* Additional styles for focus states */
@@ -267,7 +267,7 @@ input[type="text"],
 textarea, 
 input[type="date"] {
     width: 100%;
-    padding: 8px;
+    padding: 5px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
