@@ -170,25 +170,6 @@ function displayDataInCards() {
     cardsContainer.innerHTML = content; 
 }
 
-// Function to remove the class that incharge to remove the class from the div note.
-function removeFadeInClassFromNotes(){
-
-    for (const note of notes) {
-
-        //Get the element of the card.
-        var element = document.getElementById(`card-${note.id}`);
-        //Check if the element contain the class fade-in
-        let isMainPresent = element.classList.contains("fade-in");
-        if(isMainPresent)
-        {
-            //If true remove the class.
-            element.classList.remove("fade-in");
-        }
-
-   }
-}
-
-
 //Function to toggle the specific three dots menu visibility.
 function toggleMenu(id) {
 
