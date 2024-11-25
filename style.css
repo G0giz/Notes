@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     height: auto;
     width: auto;
     margin-top: 14px;
@@ -12,11 +13,15 @@ body {
     background-attachment: fixed;
 }
 
-#inputsContainer{
+
+/* ---------------------------------- Form --------------------------------------*/
+
+
+#inputsContainer {
     width: 100%;
 }
 
-#notesContainer{
+#notesContainer {
     width: 100%;
 }
 
@@ -43,87 +48,128 @@ body {
     background-color: #fff;
     border-radius: 8px;
 }
+
 /* Container for the form */
 #noteForm {
     width: 100%;
-    max-width: 400px; /* Set a smaller max-width for the form */
-    margin: 10px auto; /* Centers the form horizontally */
-    padding: 7px; /* Reduced padding inside the form */
-    border: 1px solid #ccc; /* Light gray border around the form */
-    background-color: #fff; /* White background for the form */
-    border-radius: 8px; /* Rounded corners for the form */
+    max-width: 400px;
+    /* Set a smaller max-width for the form */
+    margin: 10px auto;
+    /* Centers the form horizontally */
+    padding: 7px;
+    /* Reduced padding inside the form */
+    border: 1px solid #ccc;
+    /* Light gray border around the form */
+    background-color: #fff;
+    /* White background for the form */
+    border-radius: 8px;
+    /* Rounded corners for the form */
 }
 
 /* Style for form group containers (each input section) */
 .mb-3 {
-    margin-bottom: 0 !important; /* Reduced spacing between form elements */
+    margin-bottom: 0 !important;
+    /* Reduced spacing between form elements */
 }
 
 /* Label for each input */
 .form-label {
-    font-weight: bold; /* Makes the label text bold */
-    font-size: 0.875rem; /* Slightly smaller font size */
-    color: #333; /* Dark color for the labels */
-    margin-bottom: 3px; /* Reduced space below the label */
+    font-weight: bold;
+    /* Makes the label text bold */
+    font-size: 0.875rem;
+    /* Slightly smaller font size */
+    color: #333;
+    /* Dark color for the labels */
+    margin-bottom: 3px;
+    /* Reduced space below the label */
 }
 
 /* Style for the text input and textarea */
 .form-control {
-    width: 100%; /* Makes the form controls take up the full width of the container */
-    padding: 5px; /* Reduced padding inside the input and textarea */
-    border-radius: 4px; /* Rounded corners for inputs */
-    border: 1px solid #ccc; /* Light gray border around the input fields */
-    background-color: #f9f9f9; /* Light gray background for input fields */
-    font-size: 0.875rem; /* Smaller font size for inputs */
-    color: #333; /* Dark color for text inside inputs */
+    width: 100%;
+    /* Makes the form controls take up the full width of the container */
+    padding: 5px;
+    /* Reduced padding inside the input and textarea */
+    border-radius: 4px;
+    /* Rounded corners for inputs */
+    border: 1px solid #ccc;
+    /* Light gray border around the input fields */
+    background-color: #f9f9f9;
+    /* Light gray background for input fields */
+    font-size: 0.875rem;
+    /* Smaller font size for inputs */
+    color: #333;
+    /* Dark color for text inside inputs */
 }
 
 /* Textarea specific styling */
 textarea.form-control {
-    resize: vertical; /* Allows the textarea to be resized vertically */
-    height: 80px; /* Fixed height for textarea */
+    resize: vertical;
+    /* Allows the textarea to be resized vertically */
+    height: 80px;
+    /* Fixed height for textarea */
 }
 
 /* Date input styling */
 input[type="date"].form-control {
-    background-color: #fff; /* White background for the date picker */
+    background-color: #fff;
+    /* White background for the date picker */
 }
 
 /* Button styling */
 .formButtons {
-    width: 100%; /* Makes the button span the full width of the form */
-    padding: 8px; /* Reduced padding inside the button */
-    border-radius: 4px; /* Rounded corners for the button */
-    background-color: black; /* Blue background color for the button */
-    color: white; /* White text color */
-    border: none; /* Removes the default border */
-    cursor: pointer; /* Changes the cursor to a pointer on hover */
-    font-size: 0.875rem; /* Smaller font size for the button text */
+    width: 100%;
+    /* Makes the button span the full width of the form */
+    padding: 8px;
+    /* Reduced padding inside the button */
+    border-radius: 4px;
+    /* Rounded corners for the button */
+    background-color: black;
+    /* Blue background color for the button */
+    color: white;
+    /* White text color */
+    border: none;
+    /* Removes the default border */
+    cursor: pointer;
+    /* Changes the cursor to a pointer on hover */
+    font-size: 0.875rem;
+    /* Smaller font size for the button text */
     margin-top: 8px;
 }
 
 /* Additional styles for focus states */
-input:focus, textarea:focus, button:focus {
-    outline: none; /* Removes default focus outline */
-    border-color: #007bff; /* Changes border color to blue on focus */
+input:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+    /* Removes default focus outline */
+    border-color: #007bff;
+    /* Changes border color to blue on focus */
 }
 
+/* ---------------------------------- Card --------------------------------------*/
 
 /* Cards container styles */
 #cardsContainer {
     display: flex;
-    flex-wrap: wrap; /* Allows cards to wrap to the next line when needed */
-    justify-content: center; /* Centers cards horizontally */
-    gap: 20px; /* Space between the cards */
-    margin-top: 20px; /* Space above the cards container */
+    flex-wrap: wrap;
+    /* Allows cards to wrap to the next line when needed */
+    justify-content: center;
+    /* Centers cards horizontally */
+    gap: 56px;
+    /* Space between the cards */
+    margin-top: 20px;
+    /* Space above the cards container */
 }
 
 .card {
+    
     width: 340px;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #fffbe6; /* Light yellow for a sticky note effect */
+    background-color: #fffbe6;
+    /* Light yellow for a sticky note effect */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: row-reverse;
@@ -132,10 +178,29 @@ input:focus, textarea:focus, button:focus {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     min-height: 150px;
     max-height: 230px;
-    position: relative; /* Position for pin icon */
+    position: relative;
+    /* Position for pin icon */
+    
 }
-/* Content container on the right side */
-.card-content {
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.cardContent {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -158,10 +223,11 @@ input:focus, textarea:focus, button:focus {
 /* Hover effect */
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: -10px 30px 25px rgba(0, 0, 0, 0.40); /* Shadow on the left */
+    box-shadow: -10px 30px 25px rgba(0, 0, 0, 0.40);
+    /* Shadow on the left */
 }
 
-.inputWidth{
+.inputWidth {
     width: 95%;
 }
 
@@ -215,23 +281,9 @@ input:focus, textarea:focus, button:focus {
     flex-shrink: 0;
 }
 
-.card-buttons {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-left: 15px;
-}
-
-/* Button styling */
-.notesButtons {
-    width: 80px;
-    padding: 6px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
+.noteTime{
+    font-size: 0.8rem;
+    color: #777;
 }
 
 .edit {
@@ -263,8 +315,8 @@ input:focus, textarea:focus, button:focus {
 }
 
 /* Input fields styling */
-input[type="text"], 
-textarea, 
+input[type="text"],
+textarea,
 input[type="date"] {
     width: 100%;
     padding: 5px;
@@ -280,6 +332,7 @@ textarea {
 }
 
 
+/* ------------------------------- Three dots menu ------------------------------------ */
 /* Container for the three dots menu */
 .menu-container {
     position: absolute;
@@ -290,7 +343,8 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px; /* Optional: slight rounding */
+    border-radius: 4px;
+    /* Optional: slight rounding */
 }
 
 /* Three dots button styling */
@@ -298,11 +352,14 @@ textarea {
     background: none;
     border: none;
     color: white;
-    font-size: 2rem; /* Adjusted font size to reduce space between dots */
+    font-size: 2rem;
+    /* Adjusted font size to reduce space between dots */
     cursor: pointer;
     padding: 0;
-    line-height: 1; /* Ensures dots are vertically centered */
-    width: 22px; /* Adjusted width to fit the dots tighter */
+    line-height: 1;
+    /* Ensures dots are vertically centered */
+    width: 22px;
+    /* Adjusted width to fit the dots tighter */
     color: black;
 }
 
@@ -310,12 +367,14 @@ textarea {
 .menu-options {
     display: none;
     position: absolute;
-    top: 28px; /* Just below the button */
+    top: 28px;
+    /* Just below the button */
     right: 0;
     background-color: black;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-shadow: none; /* No animation or shadow */
+    box-shadow: none;
+    /* No animation or shadow */
     z-index: 1;
     width: max-content;
 }
@@ -329,6 +388,3 @@ textarea {
     cursor: pointer;
     width: 100%;
 }
-
-
-
