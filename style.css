@@ -147,6 +147,11 @@ button:focus {
     /* Changes border color to blue on focus */
 }
 
+.requireField{
+    color: red;
+    font-weight: bold;
+}
+
 /* ---------------------------------- Card --------------------------------------*/
 
 /* Cards container styles */

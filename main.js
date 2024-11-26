@@ -200,9 +200,10 @@ function deleteNote(id) {
     //Get the index of the item that need to be deleted.
     let index = 0;
     for (let i = 0; i < notes.length; i++) {
+        //If there id found so get the index and exit the loop.
         if (notes[i].id === id) {
             index = i;
-            break; // אין צורך להמשיך את הלולאה כי מצאנו את האינדקס
+            break; 
         }
     }
 
@@ -244,7 +245,7 @@ function editCard(id) {
     //The values of the inputs are the data of the note.
     noteTitleElement.innerHTML = `<input type="text" id="editTitle-${id}" value="${note.noteTitle}">`;
     noteDescriptionElement.innerHTML = `<textarea id="editDescription-${id}">${note.noteDescription}</textarea>`;
-    noteFileElement.innerHTML = `<input type="file" id="editFile-${id}">`;
+    noteFileElement.innerHTML = `<input type="file" id="editFile-${id}" accept=".xls,.txt,.pdf,.docx,.jpeg,.png">`;
     //Assign the value of the date and time with T as the format should be.
     noteDateElement.innerHTML = `<input type="datetime-local" id="editDate-${id}" value="${note.date}T${note.time}">`;
 

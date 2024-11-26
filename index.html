@@ -19,20 +19,23 @@
                 <form id="noteForm" method="dialog" onsubmit="addNote()">
                     <div class="mb-3">
                         <label for="noteTitle" class="form-label">Title</label>
+                        <span class="requireField">*</span>
                         <input type="text" class="form-control" id="noteTitleBox" placeholder="Enter note title"
                             required>
                     </div>
                     <div class="mb-3">
                         <label for="noteDescription" class="form-label">Description</label>
+                        <span class="requireField">*</span>
                         <textarea class="form-control" id="noteDescriptionBox" rows="4"
                             placeholder="Enter note description" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">File</label>
-                        <input class="form-control" type="file" id="formFileBox">
+                        <input class="form-control" type="file" id="formFileBox" accept=".xls,.txt,.pdf,.docx,.jpeg,.png">
                     </div>
                     <div class="mb-3">
                         <label for="noteDate" class="form-label">Date</label>
+                        <span class="requireField">*</span>
                         <input type="datetime-local" class="form-control" id="noteDateBox" required>
                     </div>
                     <button class="formButtons">Add Note</button>
